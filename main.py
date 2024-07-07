@@ -75,6 +75,11 @@ def get_all_file_paths(directory):
     return file_paths
 
 
+@app.get('/')
+async def root():
+    return {"message": "Hello World"}
+
+
 class GetNovelsPDFBody(BaseModel):
     url: str
     start: int
