@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "novel-down"
+name = "novel-downloader"
 version = "0.1.0"
 description = ""
 authors = ["Paulo Hernane <paulohernane10@gmail.com>"]
@@ -20,7 +20,26 @@ taskipy = "^1.13.0"
 [tool.poetry.group.docs.dependencies]
 mkdocstrings = "^0.26.1"
 mkdocstrings-python = "^1.11.1"
+mkdocs-material = "^9.5.40"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+pythonpaths = ["."]
+addopts = ["--doctest-modules"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.autopep8]
+max_line_length = 88
+
+[tool.taskipy.tasks]
+lint = "isort . && autopep8 . --recursive --in-place"
+docs = "mkdocs serve"
+pre_test = "task lint"
+test = "pytest -s -x -vv --cov=src"
+post_test = "coverage html"
