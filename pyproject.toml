@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "novel-down"
+version = "0.1.0"
+description = ""
+authors = ["Paulo Hernane <paulohernane10@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.3.3"
+pytest-cov = "^5.0.0"
+isort = "^5.13.2"
+autopep8 = "^2.3.1"
+taskipy = "^1.13.0"
+
+
+[tool.poetry.group.docs.dependencies]
+mkdocstrings = "^0.26.1"
+mkdocstrings-python = "^1.11.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
